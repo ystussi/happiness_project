@@ -1,1 +1,1 @@
-![pytest](https://github.com/<your_github_username>/happiness/actions/workflows/pytest.yml/badge.svg)
+![pytest](https://github.com/ystussi/happiness_project/actions/workflows/pytest.yml/badge.svg)
