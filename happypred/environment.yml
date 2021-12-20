@@ -1,0 +1,10 @@
+# Conda environment file (to save as environment.yml)
+name: happy
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - scikit-learn
+  - pandas
+  - xlrd
+  - pytest

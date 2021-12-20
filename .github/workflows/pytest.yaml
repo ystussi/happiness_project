@@ -1,0 +1,27 @@
+# Github action (to save as .github/workflows/pytest.yaml)
+name: Continuous integration
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8]
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Miniconda with Python ${{ matrix.python-version }}
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: happy
+          environment-file: environment.yml
+          python-version: ${{ matrix.python-version }}
+          auto-activate-base: false
+          miniconda-version: 'latest'
+      - name: Test with pytest
+        shell: bash -l {0}
+        run: |
+          python setup.py install
+          pytest happypred/happyio.py
